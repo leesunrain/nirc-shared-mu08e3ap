@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#0f172a" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>window.NIRC_APP_BUILD="20260914-clean1";</script>
+<title>NIRC 회원 명부</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="stylesheet" href="styles.css?v=20260914-clean1" />
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">NAJU BITDAL RUNNING CREW</div>
+      <h1>NIRC 회원 명부</h1>
+    </div>
+    <button id="adminBtn" class="iconBtn" aria-label="운영진 관리">＋</button>
+  </header>
+
+  <main id="listView" class="view active">
+    <section class="summaryRow">
+      <div class="summaryCard"><b id="currentCount">50</b><span>현재 회원</span></div>
+      <div class="summaryCard"><b id="withdrawnCount">7</b><span>탈퇴 회원</span></div>
+      <div class="summaryCard"><b id="ttCount">0</b><span>5K 기록 보유</span></div>
+    </section>
+
+    <section class="controls card">
+      <label class="searchBox"><span>⌕</span><input id="searchInput" placeholder="이름 검색" autocomplete="off" /></label>
+      <div class="segmented" id="statusTabs">
+        <button data-status="current" class="active">현재</button>
+        <button data-status="withdrawn">탈퇴</button>
+        <button data-status="all">전체</button>
+      </div>
+      <div class="filterRow">
+        <select id="groupFilter" aria-label="조 선택">
+          <option value="all">전체 조</option>
+        </select>
+        <select id="sortFilter" aria-label="정렬">
+          <option value="name">가나다순</option>
+          <option value="pb">5K PB순</option>
+          <option value="latest">최근 5K순</option>
+          <option value="group">조별</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="memberList" class="memberList"></section>
+  </main>
+
+  <main id="detailView" class="view">
+    <button id="backBtn" class="backBtn">← 회원 목록</button>
+    <section id="detailCard" class="detailCard"></section>
+  </main>
+</div>
+
+<div id="sheetBackdrop" class="backdrop hidden"></div>
+<section id="bottomSheet" class="bottomSheet hidden" aria-modal="true">
+  <div class="sheetHandle"></div>
+  <div class="sheetHead"><h2 id="sheetTitle">기록 관리</h2><button id="closeSheet" class="textBtn">닫기</button></div>
+  <div id="sheetBody"></div>
+</section>
+
+<script src="seed.js?v=20260914-clean1"></script>
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+<script src="app.js?v=20260914-clean1"></script>
+</body>
+</html>
